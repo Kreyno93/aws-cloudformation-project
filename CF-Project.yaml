@@ -17,3 +17,8 @@ Resources:
       VpcId: !Ref myVPC
       CidrBlock: 172.16.0.0/28
       AvailabilityZone: !Select [0, !GetAZs ""]
+      Tags:
+        - Key: Stack
+          Value: Test
+        - Key: Name
+          Value: CF-Public-Subnet
