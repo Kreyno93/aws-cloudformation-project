@@ -1,3 +1,6 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Test CloudFormation Deployment
+
 Resources:
   myVPC:
     Type: AWS::EC2::VPC
@@ -11,7 +14,7 @@ Resources:
         - Key: Name
           Value: CF-Test-VPC
 
-  mySubnet:
+  PublicSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref myVPC
@@ -21,17 +24,28 @@ Resources:
         - Key: Stack
           Value: Test
         - Key: Name
-          Value: CF-Public-Subnet
+          Value: CF-Public-Subnet-1
 
-          
-  mySubnet:
+  PublicSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref myVPC
       CidrBlock: 172.16.0.16/28
-      AvailabilityZone: !Select [0, !GetAZs ""]
+      AvailabilityZone: !Select [1, !GetAZs ""]
       Tags:
         - Key: Stack
           Value: Test
         - Key: Name
-          Value: CF-Public-Subnet
+          Value: CF-Public-Subnet-2
+
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref myVPC
+      Tags:
+        - Key: Stack
+          Value: Test
+        - Key: Name
+          Value: CF-Public-Route-Table
+
+
