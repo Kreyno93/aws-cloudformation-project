@@ -22,3 +22,16 @@ Resources:
           Value: Test
         - Key: Name
           Value: CF-Public-Subnet
+
+          
+  mySubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref myVPC
+      CidrBlock: 172.16.0.16/28
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      Tags:
+        - Key: Stack
+          Value: Test
+        - Key: Name
+          Value: CF-Public-Subnet
