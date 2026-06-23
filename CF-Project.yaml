@@ -48,4 +48,19 @@ Resources:
         - Key: Name
           Value: CF-Public-Route-Table
 
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Stack
+          Value: Test
+        - Key: Name
+          Value: CF-Internet-Gateway
+
+  AttachGateway:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref myVPC
+      InternetGatewayId: !Ref InternetGateway
+
 
