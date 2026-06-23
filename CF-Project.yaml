@@ -10,3 +10,10 @@ Resources:
           Value: Test
         - Key: Name
           Value: CF-Test-VPC
+
+  mySubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref myVPC
+      CidrBlock: 172.16.0.0/28
+      AvailabilityZone: !Select [0, !GetAZs ""]
