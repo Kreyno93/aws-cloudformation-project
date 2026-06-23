@@ -1,0 +1,12 @@
+Resources:
+  myVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 172.16.0.0/24
+      EnableDnsSupport: "true"
+      EnableDnsHostnames: "true"
+      Tags:
+        - Key: Stack
+          Value: Test
+        - Key: Name
+          Value: CF-Test-VPC
