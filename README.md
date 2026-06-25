@@ -81,7 +81,7 @@ aws cloudformation validate-template --template-body file://CF-Project.yaml
 ## Known Issues
 
 - The `vockey` key pair must exist in your AWS region before deploying.
-- `t3.small` is not free-tier eligible. With `DesiredCapacity: 2`, two instances run by default.
+- `t3.small` is free-tier eligible. With `DesiredCapacity: 2`, two instances run by default.
 - There is no load balancer in this branch — instances are not reachable via a single endpoint. See `feature/auto-scaling-with-alb` for the full setup.
 - Security group allows SSH from `0.0.0.0/0` — restrict to your IP in production.
 
