@@ -81,3 +81,18 @@ Resources:
     Properties:
       SubnetId: !Ref PublicSubnet2
       RouteTableId: !Ref PublicRouteTable
+
+  WebserverInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: # Amazon Linux 2 AMI (HVM), SSD Volume Type
+      SubnetId: !Ref PublicSubnet1
+      KeyName: my-key-pair # Replace with your key pair name
+      SecurityGroupIds:
+        - !Ref WebServerSecurityGroup
+      Tags:
+        - Key: Stack
+          Value: Test
+        - Key: Name
+          Value: CF-Web-Server
