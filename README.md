@@ -87,7 +87,7 @@ aws cloudformation validate-template --template-body file://CF-Project.yaml
 ## Known Issues
 
 - The `vockey` key pair must exist in your AWS region before deploying.
-- `t3.small` is not free-tier eligible.
+- `t3.small` is free-tier eligible.
 - The EC2 instance in Subnet 1 is registered directly to the target group — it is a static target, not managed by an Auto Scaling Group. See `feature/auto-scaling-with-alb` for the dynamic version.
 - Security group allows SSH from `0.0.0.0/0` — restrict to your IP in production.
 
