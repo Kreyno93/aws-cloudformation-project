@@ -79,7 +79,7 @@ aws cloudformation validate-template --template-body file://CF-Project.yaml
 
 - The `ImageId` field in this template requires a valid AMI ID for your region — it is not auto-resolved via SSM in this branch.
 - No security group means no inbound access is possible by default — the instance cannot be reached via SSH or HTTP until a security group is added.
-- `t2.micro` is used here; it is free-tier eligible but less performant than `t3.small`.
+- `t2.micro` is used here; both t2.micro and t3.small are free-tier eligible.
 
 ---
 
