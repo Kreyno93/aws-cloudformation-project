@@ -81,7 +81,7 @@ aws cloudformation validate-template --template-body file://CF-Project.yaml
 ## Known Issues
 
 - The `vockey` key pair must exist in your AWS region before deploying — it is not created by the template.
-- `t3.small` is not free-tier eligible. Use `t2.micro` to stay within free tier limits.
+- `t3.small` is free-tier eligible.
 - Security group allows SSH from `0.0.0.0/0` — restrict to your IP in production.
 
 ---
