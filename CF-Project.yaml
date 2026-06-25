@@ -106,10 +106,14 @@ Resources:
       InstanceType: t3.small
       ImageId: "{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64}}"
       KeyName: vockey
-      SubnetId: !Ref PublicSubnet1
       SecurityGroupIds:
         - !Ref WebServerSG
-      AssociatePublicIpAddress: true
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          DeviceIndex: 0
+          SubnetId: !Ref PublicSubnet1
+          GroupSet:
+            - !Ref WebServerSG
       Tags:
         - Key: Name
           Value: CF-WebServer
